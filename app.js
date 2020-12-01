@@ -18,7 +18,7 @@ app.use(function (_req, res, next) {
 app.get('/:text?', (req, res) => {
     const text = req.params.text
     if (!text) {
-        return res.status(404)
+        return res.status(404).end()
     }
 
     const songs = allSongs.filter(s => s.toLowerCase().includes(text.toLowerCase()))
