@@ -13,6 +13,17 @@ describe("API tests", () => {
         })
     });
 
+    it('should return empty array when not exist', async () => {
+        const searchedSong = "sczubdczdncoeifnefkvfn"
+
+        const res = await request(app).get(`/${searchedSong}`)
+
+        expect(res.status).toBe(200)
+        expect(res.body).toEqual({
+            songs: []
+        })
+    });
+
     it('should return 404 error', async () => {
         const searchedSong = ""
 
