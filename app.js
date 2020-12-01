@@ -21,7 +21,7 @@ app.get('/:text?', (req, res) => {
     return res.status(404)
   }
 
-  const songs = allSongs.filter(s => s.toLowerCase() === text.toLowerCase());
+  const songs = allSongs.filter(s => s.toLowerCase().includes(text.toLowerCase()));
   return res.status(200).set({ 'Content-Type': 'application/json' }).json({songs});
 })
 
